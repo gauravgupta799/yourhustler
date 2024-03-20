@@ -1,0 +1,223 @@
+@use '../abstract/colors' as *;
+@use '../abstract/function' as *;
+@use '../abstract/mixins' as *;
+@use '../abstract/font' as *;
+@use '../abstract/breakpoints' as *;
+
+
+// =============== footer  ===============
+.footer{
+    position:relative;
+}
+
+.footer::before{
+    content:'';
+    position:absolute;
+    top:-1.65%;
+    width:100%;
+    height:rem(48);
+    background-color:$clr-secondary;
+    clip-path: polygon(0 74%, 100% 45%, 100% 100%, 0% 100%);
+    @include breakpoint-sm{
+        top:-2.65%;
+    }
+}
+
+.footer-inner{
+    background-color:$clr-primary;
+}
+
+.footer-heading-container{
+    margin-bottom:rem(32);
+
+    @include breakpoint-md{
+        max-width:rem(812);
+    }
+}
+
+.footer-cta-container{
+    gap:rem(48);
+
+    @include breakpoint-md{
+        display:flex;
+        align-items:center;
+    }
+}
+
+.footer-cta-link{
+    display:flex;
+    align-items: center;
+    gap:rem(16); 
+    flex-wrap:wrap;
+    margin-top:rem(16);
+
+    @include breakpoint-md{
+        margin-top:0;
+    }
+    .footer-cta-link__item{
+        position:relative;
+        outline:2px solid $clr-white;
+        padding:rem(8) rem(28);
+        color:$clr-white;
+        font-size:rem(16);
+        @include border-radius(40px);
+        &:before{
+            content:"";
+            position:absolute;
+            inset:0;
+            transition: width, .45s cubic-bezier(0.165, 0.84, 0.44, 1);
+            width:0%;
+            @include border-radius(40px);
+        }
+        &:hover{
+            &:before{
+                width:100%;
+                background-color:$clr-secondary;
+            }
+        }
+    }
+    .footer-cta-link__item-text{
+        position:relative;
+    }
+}
+
+.footer-logo{
+    width:rem(214);
+}
+
+.footer-heading-text,
+.footer-paragraph-text{
+    color:$clr-white;
+}
+
+.footer-bottom-content{
+    padding:rem(48) 0 rem(32) 0;
+
+    @include breakpoint-md{
+        padding:rem(96) 0 rem(32) 0;
+        
+    }
+    .wrapper{
+        @include breakpoint-md{
+            max-width:rem(237);
+        }
+    }
+}
+
+ .footer-social-link{
+     display:flex;
+     flex-wrap: wrap;
+     gap:rem(24);
+     margin-top:rem(28);
+ }
+
+ .footer-social-link__item{
+    width:rem(50);
+    height:rem(50);
+    background-color: $clr-secondary;
+    @include flex-center;
+    position:relative;
+    overflow:hidden;
+    img{
+        position:relative;
+    }
+
+    &:before{
+        content:'';
+        position:absolute;
+        inset:0;
+        transition:all 0.45s cubic-bezier(0.165, 0.84, 0.44, 1);
+        clip-path: polygon(100% 100%, 0 0, 0 100%);
+        transform:scale(0);
+        transform-origin:bottom left;
+        background-color:$clr-text;
+    }
+
+    &:hover{
+        &:before{
+            transform:scale(2);
+        }
+    }
+ }
+
+ .copy-right-text{
+     font-size:rem(16);
+     font-weight:normal;
+     color:$clr-white;
+     line-height:rem(36);
+     margin-top:rem(22);
+     font-family:$ff-secondary;
+     display:block;
+ }
+
+.footer-link__item{
+    font-family:$ff-secondary;
+    font-size:rem(18);
+    line-height:rem(44);
+    background-image: linear-gradient(
+        to right,
+        $clr-secondary, 
+        $clr-secondary 50%,
+        $clr-white 50%    
+    );
+    background-size: 200% 100%;
+    background-position: 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition:background-position 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    font-weight: 600;
+    @include breakpoint-xxl{
+        font-size: rem(20);
+    }
+    &:hover{
+        background-position: 0;
+        svg{
+            path{
+                fill: $clr-secondary;
+            }
+        }
+    }
+
+    //  &:hover{
+    //      color:$clr-secondary;
+    //      svg{
+    //         path{
+    //             fill: $clr-secondary;
+    //         }
+    //      }
+    //  }
+}
+.footer-link__address{
+    margin-top: rem(-38);
+    @media only screen and (min-width: 1500px) {
+       margin-top: 0px;
+    }
+}
+.footer-link--highlight{
+    font-weight:900;
+    transition:unset;
+    font-size:rem(24);
+    color:$clr-tertiary;
+    @include breakpoint-sm{
+        font-size:rem(26);
+    }
+    @include breakpoint-md{
+        font-size:rem(28);
+    }
+    @include breakpoint-lg{
+        font-size:rem(32);
+    }
+    // &:hover{
+    //     color:$clr-white;
+    // }
+}
+
+.footer-address{
+    a{
+        @include flex-center-vertical;
+        display: flex;
+        column-gap:rem(10);
+    }
+}
+

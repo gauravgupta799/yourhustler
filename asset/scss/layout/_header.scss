@@ -1,0 +1,94 @@
+@use '../abstract/function' as *;
+@use '../abstract/colors' as *;
+@use '../abstract/breakpoints' as *;
+@use '../abstract/font' as *;
+@use '../abstract/mixins' as *;
+
+// ===================== header ===================
+.header{
+    position:fixed;
+    top: 0;
+    left: 0;
+    height:$navbar-height;
+    z-index:992;
+    width:100%;
+    // transition-property: background-color, border-color, color, fill, stroke;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+    transition-duration: 300ms;
+
+    .header-inner-container{
+        position:relative;
+    }
+
+    @include breakpoint-md{
+        height:$navbar-height-lg;
+    }
+
+    &--hidden{
+        transform: translateY(calc(-1 * $navbar-height + rem(-5)));
+        @include breakpoint-lg{
+            transform: translateY(calc(-1 * $navbar-height-lg));
+        }
+    }
+    .header__logo{
+        position:relative;
+        &--fixed{
+            visibility:visible !important;
+        }
+    }
+}
+
+.header-logo__img,
+.header-logo--fixed{
+    width:rem(191);
+    height:auto;
+}
+
+.logo-white{
+    position: absolute;
+}
+
+.logo-blue{
+    visibility: hidden;
+}
+
+.header.sticky{
+    background-color:$clr-white;
+    box-shadow:0px 2px 5px rgba(0, 0, 0, 0.2); 
+
+    .logo-blue{
+        visibility: visible;
+    }
+    .logo-white{
+        visibility: hidden;
+    }
+
+    .navbar-toggle-bar{
+        background-color:$clr-black;
+    }
+
+    .navbar-right-text{
+        color:$clr-black;
+    }
+
+    .navbar-right{
+        visibility:visible;
+    }
+
+    @include breakpoint-lg{
+        #main-nav{
+            visibility:visible;
+        }
+
+        .header-cta{
+            display:block;
+        }
+    }
+
+    .navbar-right{
+        @include breakpoint-lg{
+            display:none;
+        }
+    }
+}

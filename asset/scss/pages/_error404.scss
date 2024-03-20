@@ -1,0 +1,29 @@
+@use '../abstract/breakpoints' as *;
+@use '../abstract/colors' as *;
+@use '../abstract/function' as *;
+
+.hero-area--secondary{
+    width:100%;
+    height:70vh;
+
+    @include breakpoint-md{
+        height:80vh; 
+    }
+
+    @include breakpoint-lg{
+        height:100vh;
+    }
+}
+
+.hero-area__inner{
+    max-width:100%;
+
+    @include breakpoint-md{
+        max-width:75%;
+        margin:0 auto; 
+    }
+}
+
+.hero-cta-wrapper{
+    gap:rem(16); 
+}

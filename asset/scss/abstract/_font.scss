@@ -1,0 +1,39 @@
+// ======== heading fonts =============
+@font-face {
+    font-display:swap;
+    src: url("../asset/Fonts/GT-Eesti-Display/GT-Eesti-Display-Regular.eot"); 
+    src: url("../asset/Fonts/GT-Eesti-Display/GT-Eesti-Display-Regular.eot") format("embedded-opentype"), 
+         url("../asset/Fonts/GT-Eesti-Display/GT-Eesti-Display-Regular.woff2") format("woff2"), 
+         url("../asset/Fonts/GT-Eesti-Display/GT-Eesti-Display-Regular.woff") format("woff"), 
+         url("../asset/Fonts/GT-Eesti-Display/GT-Eesti-Display-Regular.ttf") format("truetype"); 
+    font-family: "GT Eesti Pro Display Regular";
+} 
+
+// ======== heading fonts =============
+@font-face {
+    font-display:swap;
+    src: url("../asset/Fonts/GT-Eesti-Display/GT-Eesti-Pro-Display-Bold.eot"); 
+    src: url("../asset/Fonts/GT-Eesti-Display/GT-Eesti-Pro-Display-Bold.eot?#iefix") format("embedded-opentype"), 
+         url("../asset/Fonts/GT-Eesti-Display/GT-Eesti-Pro-Display-Bold.woff2") format("woff2"), 
+         url("../asset/Fonts/GT-Eesti-Display/GT-Eesti-Pro-Display-Bold.woff") format("woff"), 
+         url("../asset/Fonts/GT-Eesti-Display/GT-Eesti-Pro-Display-Bold.ttf") format("truetype"); 
+    font-family: "GT Eesti Pro Display Bold";
+} 
+
+// =========== body font ================
+@font-face{
+    font-display:swap;
+    src: url('../asset/Fonts/matter-regular/Matter-Regular.ttf') format('truetype'),
+         url('../asset/Fonts/matter-regular/Matter-Regular.eot') format('opentype'),
+         url('../asset/Fonts/matter-regular/Matter-Regular.eot') format('embedded-opentype'),
+         url('../asset/Fonts/matter-regular/Matter-Regular.woff2') format('woff2'),
+         url('../asset/Fonts/matter-regular/Matter-Regular.woff2') format('woff'),
+         url('../asset/Fonts/matter-regular/Matter-Regular.svg') format('svg');
+    font-family: 'Matter-Regular';
+}
+
+// =========== other font ================
+
+$ff-regular:"GT Eesti Pro Display Regular", sans-serif;
+$ff-primary:'GT Eesti Pro Display Bold', sans-serif;
+$ff-secondary:'Matter-Regular';

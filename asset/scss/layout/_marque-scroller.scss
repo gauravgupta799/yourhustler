@@ -1,0 +1,154 @@
+@use '../abstract/function' as *;
+@use '../abstract/breakpoints' as *;
+@use '../abstract/mixins' as *;
+@use '../abstract/colors' as *; 
+@use '../abstract/font' as *;
+
+// ======================= marque-banner =============================
+.marque-scroller-section{
+    overflow:hidden;
+}
+
+.marque-container{
+    position: relative;
+    width:100%;
+
+    &--no-margin {
+        position: unset !important;
+        margin: 0 !important;
+    }
+    &--hero{
+        transform: rotate(-1deg) translate(-1px, 20px);
+    }
+}
+
+.marquee-text{
+    color:$clr-white;
+}
+
+.marque-banner {
+    position: relative;
+    @include flex-center-vertical;
+    overflow: hidden;
+    transition: animation 250ms linear;
+    padding-block: em(16);
+}
+
+.marque-banner__track {
+    display: flex;
+    align-items: center;
+    gap: rem(48);
+    white-space: nowrap;
+    animation: marquee-moving  20s linear infinite;
+
+    @include breakpoint-md {
+        animation-duration: 20s;
+    }
+    &--hero{
+        gap:rem(80);
+    }
+}
+
+.marque-item {
+    display: block;
+    flex-shrink: 0;
+    padding-inline:em(8);
+    text-transform: capitalize;
+    color: $clr-white;
+    &--clr-blue{
+        color: $clr-sky-blue;
+    }
+
+    &--clr-secondary{
+        color: $clr-orange-600;
+    }
+
+    &--clr-blue,   &--clr-secondary{
+        text-transform: uppercase;
+        font-size: rem(80);
+
+        @include breakpoint-sm{
+            font-size: rem(90);
+        }
+        @include breakpoint-md{
+            font-size: rem(140);
+            line-height: rem(84);
+        }
+        @include breakpoint-lg{
+            font-size: rem(160);
+        }
+    }
+}
+
+.marque-icon{
+    display:flex;
+}
+
+.marque-icon svg {
+    width: rem(35);
+    height: auto;
+
+    @include breakpoint-md {
+        width: rem(55);
+        height: auto;
+    }
+}
+
+@keyframes marquee-moving {
+    from {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+    to {
+        -webkit-transform: translateX(-25%);
+        transform: translateX(-25%);
+    }
+}
+
+.marque-wrapper{
+    &--hero{
+        background-color: $clr-secondary;
+        border-top: 2px solid $clr-white;  
+    }
+}
+
+.marque-wrapper--no-rotate {
+    transform: unset !important;
+    position: unset !important;
+}
+
+.marque-wrapper:first-child {
+    position: absolute;
+    top: rem(16);
+    left: -20px;
+    right: 0px;
+
+    .marque-item {
+        &--no-rotate {
+            transform: unset;
+        }
+    }
+
+    .marque-banner {
+        background: $clr-secondary;
+    }
+
+    .marque-banner--transparent {
+        background: transparent;
+    }
+}
+
+.marque-wrapper:last-child {
+    position: absolute;
+    right: -10px;
+    left: -20px;
+
+    .marque-banner {
+        background: rgb(255, 119, 87);
+        // background: linear-gradient(90deg, rgba(255, 119, 87, 1), rgba(255, 189, 72, 1) 100%);
+    }
+
+    .marque-banner--transparent {
+        background: transparent;
+    }
+}

@@ -1,0 +1,532 @@
+@use '../abstract/colors' as *;
+@use '../abstract/function' as *;
+@use '../abstract/font' as *;
+@use '../abstract/mixins' as *;
+@use '../abstract/breakpoints' as *;
+
+// =================== main-banner ========================
+.hero-banner {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: rgb(0, 58, 220);
+    background: radial-gradient(circle, rgba(0, 58, 220, 1) 0%, rgba(18, 64, 193, 1) 100%);
+    --webkit-clip-path: polygon(0 0, 100% 0, 100% 96%, 0% 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 96%, 0% 100%);
+
+    .hero-content {
+        position: absolute;
+        top: 50%;
+        left: rem(8);
+        right: rem(8);
+        transform: translateY(-50%);
+
+        @include breakpoint-sm {
+            left: rem(16);
+            right: rem(16);
+        }
+
+        @include breakpoint-md {
+            left: 5.75%;
+            right: 5.75%;
+        }
+
+        .banner-title {
+            @include breakpoint-xxl {
+                font-size: rem(100);
+                line-height: 1.25;
+            }
+        }
+    }
+}
+
+.banner-title {
+    color: $clr-white;
+}
+
+.banner-cta {
+    display: inline-flex;
+    gap: rem(15);
+}
+
+.banner-social-media {
+    position: absolute;
+    bottom: rem(48);
+    left: rem(16);
+
+    @include breakpoint-sm {
+        left: rem(32);
+    }
+
+    @include breakpoint-md {
+        left: 5.75%;
+    }
+
+    .banner-social-media__wrapper {
+        position: relative;
+    }
+
+    .banner-social-media__list {
+        list-style-type: disc;
+        color: $clr-white;
+        display: flex;
+    
+        gap: rem(22);
+        margin-top: rem(48);
+        margin-left: rem(10);
+
+
+        @include breakpoint-sm {
+            gap: rem(48);
+        }
+
+        @include breakpoint-md {
+            gap: rem(32);
+            margin: unset;
+        }
+    }
+
+    .banner-social-media__list-item {
+        &:nth-child(4){
+            display:none;
+
+            @include breakpoint-sm{
+                display:list-item; 
+            }
+        }
+
+        &:first-child {
+            list-style-type: none;
+        }
+
+        &:hover {
+            color: $clr-secondary;
+        }
+
+        &:hover .social-media-link {
+            color: $clr-secondary;
+        }
+    }
+
+    .social-media-link {
+        font-size: rem(16);
+        line-height: rem(36);
+        color: $clr-white;
+        letter-spacing: 0.05rem;
+    }
+}
+
+.bg-clr-secondary {
+    background-color: $clr-secondary;
+    height: rem(48);
+    width: 100%;
+    margin-top: rem(-48);
+}
+// =================== yh-highlight ========================
+.yh-highlight {
+    margin-top: rem(96);
+
+    .row {
+        width: 100% !important;
+    }
+
+    .yh-highlight__heading-text {
+        color: $clr-primary;
+    }
+
+    @include breakpoint-md {
+        margin: rem(128) 0 rem(32) 0;
+    }
+}
+
+.video-wrapper {
+    width: 100%;
+    margin: 0;
+    @include flex-center;
+    overflow: hidden;
+    position: relative;
+
+    .toggle-sound {
+        position: absolute;
+        bottom: calc(20% - 25.5px);
+        right: calc(10% - 25.5px);
+        background-color: $clr-secondary;
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
+        text-align: center;
+        color: $clr-white;
+        border-radius: 50%;
+        cursor: pointer;
+        z-index: 99;
+        animation: pulse 1.45s infinite cubic-bezier(0.66, 0, 0, 1);
+        box-shadow: 0 0 0 0 $clr-secondary;
+
+        @include breakpoint-sm {
+            width:55px;
+            height:55px;
+            line-height:55px;
+            bottom: calc(10% - 25.5px);
+            right: calc(5% - 25.5px);
+        }
+    }
+
+
+    .toggle-sound.sound-mute {
+        box-shadow: none;
+    }
+
+    @-webkit-keyframes pulse {
+        to {
+            box-shadow: 0 0 0 25px rgba(232, 76, 61, 0);
+        }
+    }
+
+    @-moz-keyframes pulse {
+        to {
+            box-shadow: 0 0 0 25px rgba(232, 76, 61, 0);
+        }
+    }
+
+    @-ms-keyframes pulse {
+        to {
+            box-shadow: 0 0 0 25px rgba(232, 76, 61, 0);
+        }
+    }
+
+    @keyframes pulse {
+        to {
+            box-shadow: 0 0 0 25px rgba(232, 76, 61, 0);
+        }
+    }
+
+    .sound {
+        width: 97%;
+        height: 100%;
+        position: absolute;
+        cursor: pointer;
+        display: inline-block;
+        left: 0;
+        top: 0;
+        margin-left: -15%;
+    }
+
+    .sound__icon {
+        color: inherit;
+        font-size :0.8rem;
+        display: block;
+        margin: auto;
+        text-align: left;
+        line-height:inherit;
+        padding-left: 12px;
+
+
+        @include breakpoint-sm{
+            font-size :1.6rem;
+            line-height:inherit;
+            padding-left: 15px;
+        }
+    }
+
+    .sound__wave {
+        position: absolute;
+        border: 2px solid transparent;
+        border-right: 2px solid #fff;
+        border-radius: 50%;
+        transition: all 200ms;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    .sound__wave--one {
+        width: 45%;
+        height: 40%;
+    }
+
+    .sound__wave--two {
+        width: 70%;
+        height: 62%;
+    }
+
+    .sound__wave--three {
+        width: 95%;
+        height: 75%;
+    }
+
+    .sound-mute .sound__wave {
+        border-radius: 0;
+        width: 35%;
+        height: 35%;
+        border-width: 0 2px 0 0;
+        left: 5px;
+    }
+
+    .sound-mute .sound__wave--one {
+        -webkit-transform: rotate(45deg) translate3d(0, -50%, 0);
+        transform: rotate(45deg) translate3d(0, -50%, 0);
+    }
+
+    .sound-mute .sound__wave--two {
+        -webkit-transform: rotate(-45deg) translate3d(0, 50%, 0);
+        transform: rotate(-45deg) translate3d(0, 50%, 0);
+    }
+
+    .sound-mute .sound__wave--three {
+        opacity: 0;
+        transform: translateX(-46%);
+        height: 20%;
+    }
+}
+
+// ======================= what we do =============================
+.what-we-do {
+    background-color: $clr-section-bg;
+}
+
+.what-we-do__wrapper {
+    border-bottom: 1px solid #DBDBDB;
+    position: relative;
+
+    &:before {
+        content: '';
+        position: absolute;
+        width: 0%;
+        top: 0px;
+        left: 0px;
+        bottom: 0;
+        right: 0;
+        display: block;
+        transition-property: width, background-color, fill;
+        transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+        transition-duration: 450ms;
+    }
+
+    &:hover {
+        color: $clr-white;
+        cursor: pointer;
+
+        &:before {
+            width: 100%;
+            background-color: $clr-primary;
+        }
+    }
+}
+
+.section__heading-text {
+    color: $clr-primary;
+}
+
+.section-header .overflow-hidden-wrapper:first-child{
+    max-width:rem(600);
+}
+
+.section-header .overflow-hidden-wrapper:last-child{
+    max-width:rem(750);
+}
+
+.what-we-do__inner-content {
+    padding-block: rem(32);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+
+
+    @include breakpoint-md {
+        padding-block: rem(48);
+    }
+
+    @include breakpoint-md {
+        padding-block: rem(64);
+    }
+
+
+    &:hover .what-we-do__paragraph {
+        color: $clr-white;
+    }
+
+    &:hover svg {
+        fill: $clr-secondary;
+        transform: translateX(5px);
+
+        @include breakpoint-md {
+            transform: translateX(10px);
+        }
+    }
+
+    .arrow-icon {
+        @include flex-center-vertical;
+    }
+
+    .absolute-text {
+        font-size: rem(24);
+        line-height: rem(33);
+        font-style: italic;
+        font-family: $ff-secondary;
+    }
+
+    .what-we-do__heading-text {
+        text-transform: capitalize;
+    }
+
+    .read-more-btn {
+        display: inline-block;
+
+        @include breakpoint-md {
+            margin-top: none;
+        }
+    }
+
+    .what-we-do__paragraph {
+        font-size: rem(16);
+        line-height: 2;
+        font-family: $ff-secondary;
+    }
+
+    .what-we-do__body {
+        display: flex;
+        gap: rem(16);
+        width: 100%;
+    }
+
+    .lets-work {
+        font-family: $ff-secondary;
+        font-size: rem(16);
+        line-height: 2;
+        font-weight: 600;
+        color: $clr-secondary;
+
+        @include breakpoint-md {
+            font-size: rem(18);
+        }
+    }
+
+    .lets-work-arrow svg {
+        width: rem(45);
+        height: auto;
+        transition: 0.35s transform ease-in-out;
+
+        @include breakpoint-md {
+            width: rem(68);
+        }
+    }
+
+    &:hover .what-we-do__heading-text {
+        color: $clr-white;
+    }
+}
+
+.view-more-btn {
+    position: absolute;
+    right: rem(-80);
+    bottom: -20%;
+    width: rem(143);
+    height: rem(143);
+    border-radius: 50%;
+    background-color: $clr-secondary;
+    font-size: rem(16);
+    color: $clr-white;
+    font-weight: normal;
+    opacity: 0;
+    transition: opacity 0.7s cubic-bezier(.83, 0, .29, .99);
+    font-family: $ff-primary;
+    @include flex-center;
+}
+
+// ================== our client ===================
+.our-client {
+    position: relative;
+    overflow: hidden;
+
+    .our-client__logo {
+        width: 120%;
+
+        @include breakpoint-md {
+            width: 140%;
+        }
+    }
+
+    img{
+        max-width:rem(150);
+    }
+
+    &__logo img {
+        width: 100%;
+        height: auto;
+
+        @include breakpoint-md {
+            width: 80%;
+        }
+    }
+
+    .logo-strip2 {
+        margin-left: 10%;
+    }
+}
+
+// =============== go digital start ===========
+.section-heading__text {
+    color: $clr-primary;
+}
+
+.section-heading__text,
+.footer-heading-text {
+    text-transform: capitalize;
+}
+
+.go-digital{
+    background-color:$clr-primary;
+
+    .section-heading__text {
+        color: $clr-white;
+    }
+
+    p{
+         color:$clr-white;
+    }
+}
+
+.go-digital-bg-wrapper{
+    width: 100%;
+    height: 60vh;
+    position:relative;
+
+    @include breakpoint-sm {
+        height: 65vh;
+    }
+
+    @include breakpoint-md {
+        height: 75vh;
+    }
+
+    @include breakpoint-lg {
+        height: 90vh;
+    }
+
+    @include breakpoint-xl {
+        height: 100vh;
+    }
+}
+
+.go-digital-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../asset/img/6249cf1f7e486f314886b2d3_phone-hand-p-1080.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.go-digital--home{
+    background-image: url('../asset/img/homepage-digital-banner.jpg');
+}
+
+.go-digital--web-design{
+    background-image: url('../asset/img/Allanwebsite-mockup.jpg');
+}

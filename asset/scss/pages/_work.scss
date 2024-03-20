@@ -1,0 +1,94 @@
+@use '../abstract/colors' as *;
+@use '../abstract/breakpoints' as *;
+@use '../abstract/function' as *;
+@use '../abstract/font' as *;
+@use "../abstract/mixins" as *;
+
+// ================ work hero ==============
+.filters__list{
+    display:flex;
+    flex-wrap: wrap;
+    gap:6%;
+
+    @include breakpoint-md{
+        gap:10%;
+    }
+}
+
+.filter__list-item{
+    box-sizing:border-box;
+    list-style-type: none;
+    text-transform:capitalize;
+    cursor:pointer;
+    position:relative;
+    border:1px solid $clr-grey-700;
+    @include border-radius(3px);
+    padding:0.2em 0.8rem;
+    margin-top:0.8rem;
+    a{
+        transition-property: background-position;
+        transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+        transition-duration: 300ms;
+        background-image: linear-gradient(
+            to right, 
+            $clr-secondary,
+            $clr-secondary 50%, 
+            $clr-black 50%
+        );
+        background-size: 200% 100%;
+        background-position: 100%;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    &:hover{
+        border-color: $clr-secondary;
+        a{
+            background-position: 0;
+        }   
+    }
+    &.active{
+        border-color:$clr-secondary;
+        a{
+            background-position: 0;
+            font-weight:bold;
+        }
+        @include breakpoint-md{
+            background-color:transparent;
+        }
+    }
+    @include breakpoint-md{
+        border:none;
+        padding:0;
+        border-radius:0;
+        margin:0;
+    }
+}
+
+.filter-spacer{
+    width:93.5%;
+    border-bottom:1.5px solid $clr-grey-700;
+}
+
+.feature-project__footer{
+    margin-top:rem(16);
+}
+.feature-project__heading{
+    font-family: $ff-secondary;
+    font-weight: 700;
+}
+.feature-article__category-tag{
+    font-size: rem(18);
+}
+
+.filter-projects{
+    display: none;
+}
+.filter-projects.show{
+    display: block;
+}
+.portfolio{
+    &__img-figure{
+        margin-bottom: -5px;
+    }
+}

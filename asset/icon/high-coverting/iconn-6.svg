@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="77.378" height="76.413" viewBox="0 0 77.378 76.413">
+    <g data-name="Group 2766">
+        <g data-name="051---Open-Source" transform="translate(3)">
+            <path d="M43.87 67.554H5.13A5.13 5.13 0 0 1 0 62.425V6h69.248v36.176z" transform="translate(0 1.694)" style="fill:#fff"/>
+            <path data-name="Shape" d="M69.248 5.13v5.13H0V5.13A5.13 5.13 0 0 1 5.13 0h58.989a5.13 5.13 0 0 1 5.129 5.13z" style="fill:#fff"/>
+            <ellipse cx="1" cy="1.5" rx="1" ry="1.5" transform="translate(4 3.386)" style="fill:#fff"/>
+            <circle data-name="Oval" cx="1.5" cy="1.5" r="1.5" transform="translate(9 3.386)" style="fill:#fff"/>
+            <circle data-name="Oval" cx="1.5" cy="1.5" r="1.5" transform="translate(14 3.386)" style="fill:#fff"/>
+            <path data-name="Shape" d="M36.671 5.565H21.282a1.282 1.282 0 0 1 0-2.565h15.389a1.282 1.282 0 0 1 0 2.565z" transform="translate(5.648 .847)" style="fill:#fff"/>
+            <path data-name="Shape" d="M65.914 47.953A17.97 17.97 0 1 1 60.785 35.4a17.97 17.97 0 0 1 5.13 12.554z" transform="translate(8.464 8.471)" style="fill:#fff"/>
+            <path data-name="Shape" d="M41.282 44.541A1.282 1.282 0 0 1 40 43.259V38.13a5.13 5.13 0 1 1 10.259 0 1.282 1.282 0 0 1-2.565 0 2.565 2.565 0 1 0-5.13 0v5.13a1.282 1.282 0 0 1-1.282 1.281z" transform="translate(11.295 9.318)" style="fill:#fff"/>
+            <g data-name="Group 2765" transform="translate(6.412 15.388)">
+                <path data-name="Shape" d="M21.694 27.389a1.282 1.282 0 0 1-.867-.337l-6-5.505a2.49 2.49 0 0 1 0-3.7l6-5.505a1.282 1.282 0 1 1 1.734 1.89l-6 5.505 6 5.428a1.282 1.282 0 0 1-.873 2.227z" transform="translate(-2.458 -12)" style="fill:#fff"/>
+                <path data-name="Shape" d="M34.282 27.389a1.282 1.282 0 0 1-.867-2.227l6-5.505-6-5.428a1.282 1.282 0 1 1 1.734-1.89l6 5.505a2.49 2.49 0 0 1 0 3.7l-6 5.505a1.282 1.282 0 0 1-.866.337z" transform="translate(2.907 -12)" style="fill:#fff"/>
+                <path data-name="Shape" d="M24.282 27.384a1.282 1.282 0 0 1-1.1-1.943l7.694-12.824a1.282 1.282 0 0 1 2.2 1.321l-7.694 12.824a1.282 1.282 0 0 1-1.1.622z" transform="translate(.083 -11.996)" style="fill:#fff"/>
+                <ellipse data-name="Oval" cx="1.5" cy="1" rx="1.5" ry="1" transform="translate(-.412 20.997)" style="fill:#fff"/>
+                <ellipse data-name="Oval" cx="1.5" cy="1" rx="1.5" ry="1" transform="translate(-.412 25.997)" style="fill:#fff"/>
+                <ellipse data-name="Oval" cx="1.5" cy="1" rx="1.5" ry="1" transform="translate(-.412 30.997)" style="fill:#fff"/>
+                <ellipse data-name="Oval" cx="1.5" cy="1" rx="1.5" ry="1" transform="translate(-.412 35.997)" style="fill:#fff"/>
+                <circle data-name="Oval" cx="1.5" cy="1.5" r="1.5" transform="translate(-.412 40.997)" style="fill:#fff"/>
+                <circle data-name="Oval" cx="1.5" cy="1.5" r="1.5" transform="translate(-.412 45.997)" style="fill:#fff"/>
+                <path data-name="Shape" d="M23.106 30.565H10.282a1.282 1.282 0 0 1 0-2.565h12.824a1.282 1.282 0 0 1 0 2.565z" transform="translate(-3.87 -7.482)" style="fill:#fff"/>
+                <path data-name="Shape" d="M29.518 38.565H10.282a1.282 1.282 0 1 1 0-2.565h19.236a1.282 1.282 0 0 1 0 2.565z" transform="translate(-3.87 -5.223)" style="fill:#fff"/>
+                <path data-name="Shape" d="M25.671 46.565H10.282a1.282 1.282 0 1 1 0-2.565h15.389a1.282 1.282 0 1 1 0 2.565z" transform="translate(-3.87 -2.964)" style="fill:#fff"/>
+                <path data-name="Shape" d="M34.648 34.565H10.282a1.282 1.282 0 1 1 0-2.565h24.366a1.282 1.282 0 1 1 0 2.565z" transform="translate(-3.87 -6.352)" style="fill:#fff"/>
+                <path data-name="Shape" d="M17.977 42.565h-7.695a1.282 1.282 0 1 1 0-2.565h7.694a1.282 1.282 0 1 1 0 2.565z" transform="translate(-3.87 -4.093)" style="fill:#fff"/>
+                <path data-name="Shape" d="M16.694 50.565h-6.412a1.282 1.282 0 1 1 0-2.565h6.412a1.282 1.282 0 0 1 0 2.565z" transform="translate(-3.87 -1.834)" style="fill:#fff"/>
+                <path data-name="Shape" d="M28.13 30.565h-3.848a1.282 1.282 0 0 1 0-2.565h3.848a1.282 1.282 0 0 1 0 2.565z" transform="translate(.083 -7.482)" style="fill:#fff"/>
+                <path data-name="Shape" d="M24.13 42.565h-3.848a1.282 1.282 0 1 1 0-2.565h3.848a1.282 1.282 0 1 1 0 2.565z" transform="translate(-1.047 -4.093)" style="fill:#fff"/>
+            </g>
+            <rect width="15" height="16" rx="2" transform="translate(49 52.386)" style="fill:#fff"/>
+            <circle data-name="Oval" cx="2.5" cy="2.5" r="2.5" transform="translate(54 57.386)" style="fill:#fff"/>
+        </g>
+        <g data-name="Page-1">
+            <g data-name="051---Open-Source" transform="translate(0 2)">
+                <path data-name="Shape" d="M43.87 67.554H5.13A5.13 5.13 0 0 1 0 62.425V6h69.248v36.176z" transform="translate(0 1.694)" style="fill:#f6f9ff"/>
+                <path data-name="Shape" d="M69.248 5.13v5.13H0V5.13A5.13 5.13 0 0 1 5.13 0h58.989a5.13 5.13 0 0 1 5.129 5.13z" style="fill:#64b5f6"/>
+                <ellipse data-name="Oval" cx="1" cy="1.5" rx="1" ry="1.5" transform="translate(4 3.386)" style="fill:#003adc"/>
+                <circle data-name="Oval" cx="1.5" cy="1.5" r="1.5" transform="translate(9 3.386)" style="fill:#ff7757"/>
+                <circle data-name="Oval" cx="1.5" cy="1.5" r="1.5" transform="translate(14 3.386)" style="fill:#fff"/>
+                <path data-name="Shape" d="M36.671 5.565H21.282a1.282 1.282 0 0 1 0-2.565h15.389a1.282 1.282 0 0 1 0 2.565z" transform="translate(5.648 .847)" style="fill:#2980ba"/>
+                <path data-name="Shape" d="M65.914 47.953A17.97 17.97 0 1 1 60.785 35.4a17.97 17.97 0 0 1 5.13 12.554z" transform="translate(8.464 8.471)" style="fill:#ff7757"/>
+                <path data-name="Shape" d="M41.282 44.541A1.282 1.282 0 0 1 40 43.259V38.13a5.13 5.13 0 1 1 10.259 0 1.282 1.282 0 0 1-2.565 0 2.565 2.565 0 1 0-5.13 0v5.13a1.282 1.282 0 0 1-1.282 1.281z" transform="translate(11.295 9.318)" style="fill:#d1d4d1"/>
+                <g data-name="Group 2765" transform="translate(6.412 15.388)">
+                    <path data-name="Shape" d="M21.694 27.389a1.282 1.282 0 0 1-.867-.337l-6-5.505a2.49 2.49 0 0 1 0-3.7l6-5.505a1.282 1.282 0 1 1 1.734 1.89l-6 5.505 6 5.428a1.282 1.282 0 0 1-.873 2.227z" transform="translate(-2.458 -12)" style="fill:#7f8c8d"/>
+                    <path data-name="Shape" d="M34.282 27.389a1.282 1.282 0 0 1-.867-2.227l6-5.505-6-5.428a1.282 1.282 0 1 1 1.734-1.89l6 5.505a2.49 2.49 0 0 1 0 3.7l-6 5.505a1.282 1.282 0 0 1-.866.337z" transform="translate(2.907 -12)" style="fill:#7f8c8d"/>
+                    <path data-name="Shape" d="M24.282 27.384a1.282 1.282 0 0 1-1.1-1.943l7.694-12.824a1.282 1.282 0 0 1 2.2 1.321l-7.694 12.824a1.282 1.282 0 0 1-1.1.622z" transform="translate(.083 -11.996)" style="fill:#7f8c8d"/>
+                    <ellipse data-name="Oval" cx="1.5" cy="1" rx="1.5" ry="1" transform="translate(-.412 20.997)" style="fill:#7f8c8d"/>
+                    <ellipse data-name="Oval" cx="1.5" cy="1" rx="1.5" ry="1" transform="translate(-.412 25.997)" style="fill:#7f8c8d"/>
+                    <ellipse data-name="Oval" cx="1.5" cy="1" rx="1.5" ry="1" transform="translate(-.412 30.997)" style="fill:#7f8c8d"/>
+                    <ellipse data-name="Oval" cx="1.5" cy="1" rx="1.5" ry="1" transform="translate(-.412 35.997)" style="fill:#7f8c8d"/>
+                    <circle data-name="Oval" cx="1.5" cy="1.5" r="1.5" transform="translate(-.412 40.997)" style="fill:#7f8c8d"/>
+                    <circle data-name="Oval" cx="1.5" cy="1.5" r="1.5" transform="translate(-.412 45.997)" style="fill:#7f8c8d"/>
+                    <path data-name="Shape" d="M23.106 30.565H10.282a1.282 1.282 0 0 1 0-2.565h12.824a1.282 1.282 0 0 1 0 2.565z" transform="translate(-3.87 -7.482)" style="fill:#7f8c8d"/>
+                    <path data-name="Shape" d="M29.518 38.565H10.282a1.282 1.282 0 1 1 0-2.565h19.236a1.282 1.282 0 0 1 0 2.565z" transform="translate(-3.87 -5.223)" style="fill:#7f8c8d"/>
+                    <path data-name="Shape" d="M25.671 46.565H10.282a1.282 1.282 0 1 1 0-2.565h15.389a1.282 1.282 0 1 1 0 2.565z" transform="translate(-3.87 -2.964)" style="fill:#7f8c8d"/>
+                    <path data-name="Shape" d="M34.648 34.565H10.282a1.282 1.282 0 1 1 0-2.565h24.366a1.282 1.282 0 1 1 0 2.565z" transform="translate(-3.87 -6.352)" style="fill:#7f8c8d"/>
+                    <path data-name="Shape" d="M17.977 42.565h-7.695a1.282 1.282 0 1 1 0-2.565h7.694a1.282 1.282 0 1 1 0 2.565z" transform="translate(-3.87 -4.093)" style="fill:#7f8c8d"/>
+                    <path data-name="Shape" d="M16.694 50.565h-6.412a1.282 1.282 0 1 1 0-2.565h6.412a1.282 1.282 0 0 1 0 2.565z" transform="translate(-3.87 -1.834)" style="fill:#7f8c8d"/>
+                    <path data-name="Shape" d="M28.13 30.565h-3.848a1.282 1.282 0 0 1 0-2.565h3.848a1.282 1.282 0 0 1 0 2.565z" transform="translate(.083 -7.482)" style="fill:#7f8c8d"/>
+                    <path data-name="Shape" d="M24.13 42.565h-3.848a1.282 1.282 0 1 1 0-2.565h3.848a1.282 1.282 0 1 1 0 2.565z" transform="translate(-1.047 -4.093)" style="fill:#7f8c8d"/>
+                </g>
+                <rect data-name="Rectangle-path" width="15" height="16" rx="2" transform="translate(49 52.386)" style="fill:#f6f9ff"/>
+                <circle data-name="Oval" cx="2.5" cy="2.5" r="2.5" transform="translate(54 57.386)" style="fill:#ff7757"/>
+            </g>
+        </g>
+    </g>
+</svg>

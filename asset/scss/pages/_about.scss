@@ -1,0 +1,246 @@
+@use '../abstract/mixins' as *;
+@use '../abstract/function' as *;
+@use '../abstract/colors' as *;
+@use '../abstract/breakpoints' as *;
+
+// =============== about page ==============
+// pt--6 pt--md--10 mt--xl-11
+.about-hero{
+    // margin-top: -6px;
+    padding-top: 96px;
+    @media only screen and (min-width:768px){
+        padding-top: 160px;
+    }
+    @media only screen and (min-width:1280px){
+        padding-top: 142px;
+    }
+    @media only screen and (min-width:1366px){
+        padding-top: 161px;
+    }
+    @media only screen and (min-width:1400px){
+        padding-top: 248px;
+    }
+    @media only screen and (min-width:1440px){
+        padding-top: 232px;
+    }
+    @media only screen and (min-width:1680px){
+        padding-top: 134px;
+    }
+}
+.about-hero__content{
+    width:100%;
+    margin:0 !important;
+    padding:0 !important;
+   
+    &:first-child{
+        @include flex-center-vertical;
+    }
+    &:nth-child(2){
+        @include flex-end-vertical;
+    }
+}
+
+.about-hero__text-container-inner{
+    @include breakpoint-xl{
+        margin-top:rem(-170);
+    }
+}
+
+.about-hero__img-container{
+    text-align:end;
+    img{
+        display: block;
+        @include border-radius(8px);
+    }
+}
+
+// .about-hero__track{
+//     margin-top:rem(68);
+
+//     @include breakpoint-md{
+//         margin-top:rem(84);
+//     }
+//     @include breakpoint-lg{
+//         margin-top:rem(10);
+//     }
+//     @include breakpoint-xl{
+//         margin-top:rem(68);
+//     }
+// }
+
+// @media(max-width:23.75em){
+//     .about-hero__track{
+//         margin-top:rem(48);
+//     }
+// }
+
+// @media only screen and (max-height: 45em) and (max-width: 34.375em){
+//     .about-hero__track{
+//         margin-top:rem(120);
+//     }
+// }
+
+// @media(min-width:85em){
+//     .about-hero__track{
+//         margin-top:rem(-32);
+//     }
+// }
+
+// @media(min-width:90em){
+//     .about-hero__track{
+//         margin-top:rem(-32);
+//     }
+// }
+
+// .about-hero__track{
+//     @include breakpoint-xxl{
+//         margin-top:rem(-10);
+//     }
+// }
+
+// ========== about us ==============
+.about-us{
+    &__wrapper{
+        width:100%;
+        height:60vh;
+        position:relative;
+        @include breakpoint-sm{
+            height:65vh;
+        }
+        @include breakpoint-md{
+            height:75vh;
+        }
+        @include breakpoint-lg{
+            height:90vh;
+        }
+        @include breakpoint-xl{
+            height:100vh;
+        }
+    }
+    &__bg{
+        position:relative;
+        top:0;
+        left:0;
+        @include full-dimensions;
+        background-image:url('../asset/img/about-us-banner.jpg');
+        @include cover-background;
+    }
+    .section-heading__text{
+        @include breakpoint-md{
+            max-width:90%;
+        }
+    }
+}
+
+// ============ why us ==============
+.why-us{
+    background-color:$clr-section-bg;
+}
+
+.why-us__body-heading{
+    color:$clr-secondary;
+}
+
+.heading-opacity--30{
+    color:rgba(255, 118, 87, 0.32);
+}
+// ================ our team starts ================
+.our-team{
+    .our-team__member-footer{
+        margin-top:rem(24);
+        text-align:center;
+    }
+    .row > *{
+        overflow:hidden;
+    }
+    .our-team__member{
+        // max-width:85%;
+        margin:0 auto;
+        @include breakpoint-md{
+            max-width:100%;
+        }
+        img{
+            @include border-radius(8px);
+        }
+    }
+    .our-team__member img{
+        @include transition(all, 0.35s, ease-in-out);
+        cursor: pointer;
+    }
+    .our-team__member img:hover{
+        transform:scale(0.98);
+    }
+    .person-name{
+        text-transform:uppercase;
+    }
+}
+
+// ============== grow with us =================
+.grow-with-us{
+    background-color:$clr-primary;
+
+    .grow-with-us__heading-text{
+        color:$clr-white;
+    }
+    // &__inner-content{
+    //     p{
+    //         font-size: rem(18);
+    //         line-height: 2;
+    //         @include breakpoint-sm{
+    //             font-size: rem(20);
+    //         }
+    //     }
+    // }
+}
+// ============== what we create ============
+.what-we-create{
+    overflow-x: hidden;
+}
+.what-we-create__subheading{
+    text-transform:uppercase;
+    overflow:hidden;
+}
+
+.what-we-create__gallery{
+    width:106%;
+    margin-inline:auto;
+    figure{
+        img{
+            @include border-radius(8px);
+        }
+    }
+}
+
+// ============== quick call ============
+.quick-call{
+    background-color:$clr-section-bg;
+    .inner-section{
+        // max-width:rem(960);
+        max-width:rem(800);
+        margin:0 auto;
+        text-align: center;
+    }
+}
+
+.inner-section.para {
+    max-width: 55rem;
+}
+
+.count-title{
+    text-transform: capitalize;
+}
+.count-paragraph{
+    margin-top: rem(16);
+}
+.counter-area--secondary{
+    background-color:$clr-section-bg;
+    // .count-digit-wrapper{
+    //     color:$clr-primary;
+    // }
+
+    .page-container .count-area-content{
+        @include breakpoint-md{
+            width:45%;
+        }
+    }   
+}

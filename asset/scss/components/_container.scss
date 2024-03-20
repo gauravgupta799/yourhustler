@@ -1,0 +1,37 @@
+@use '../abstract/mixins' as *;
+@use '../abstract/function' as *;
+@use '../abstract/breakpoints' as *;
+
+$full-width:100%;
+
+// ========= page container starts =========
+.page-container{
+    max-width:none;
+    margin:0 rem(16);
+
+    @include breakpoint-sm{
+        max-width:none;
+        margin:0 rem(32);
+    }
+
+    @include breakpoint-md{
+        max-width:calc($full-width*0.885);
+        margin:0 auto;
+    }
+  
+    @include breakpoint-lg{
+        max-width:calc($full-width*0.885);
+        margin:0 auto;
+    }
+
+    @include breakpoint-xl{
+        max-width:calc($full-width*0.875);
+        margin:0 auto;    
+    }
+
+    @include breakpoint-xxl{
+        max-width:calc($full-width*0.855);
+        margin:0 auto;
+    }
+}
+// ========= page container ends =========

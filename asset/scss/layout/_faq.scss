@@ -1,0 +1,71 @@
+@use '../abstract/function' as *;
+@use '../abstract/colors' as *;
+@use '../abstract/font' as *;
+@use '../abstract/mixins' as *;
+@use '../abstract/breakpoints' as *;
+
+
+// ============= faq or accordion ===================
+.accordion {
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: left;
+    padding-block: em(12);
+    cursor: pointer;
+    transition: background-color, color 0.2s linear;
+}
+
+.accordion--primary {
+    @include flex-start-vertical;
+    justify-content: space-between;
+    text-transform: capitalize;
+    gap:rem(12);
+    &:hover {
+        color: $clr-primary;
+    }
+}
+
+.accordion--secondary {
+    color: $clr-white;
+}
+
+.section-heading {
+
+    @include breakpoint-md {
+        max-width: 80%;
+    }
+}
+
+.faq .section-heading__text{
+    color:$clr-primary;
+}
+
+.accordion--primary:after {
+    font-family: FontAwesome;
+    content: "\f107";
+    font-weight: bold;
+    font-family: "fontawesome";
+    float: right;
+}
+
+.accordion--primary.is-open:after {
+    content: "\f106";
+}
+
+.accordion-content {
+    padding-right: em(20);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+    p{
+        padding-bottom: 20px;
+    }
+}
+
+.accordion-content--secondary {
+    p{
+        color: $clr-white;
+    }
+}
+
