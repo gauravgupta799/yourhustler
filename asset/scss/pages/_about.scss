@@ -4,24 +4,19 @@
 @use '../abstract/breakpoints' as *;
 
 // =============== about page ==============
-// pt--6 pt--md--10 mt--xl-11
 .about-hero{
-    // margin-top: -6px;
-    padding-top: 96px;
+    // padding-top: 96px;
+    padding-top: rem(112);
     @media only screen and (min-width:768px){
-        padding-top: 160px;
+        padding-top: rem(160);
     }
     @media only screen and (min-width:1280px){
-        padding-top: 142px;
+        // padding-top: 142px;
+        padding-top: rem(135);
     }
     @media only screen and (min-width:1366px){
-        padding-top: 161px;
-    }
-    @media only screen and (min-width:1400px){
-        padding-top: 248px;
-    }
-    @media only screen and (min-width:1440px){
-        padding-top: 232px;
+        // padding-top: 161px;
+        padding-top: 154px;
     }
     @media only screen and (min-width:1680px){
         padding-top: 134px;
@@ -53,50 +48,6 @@
         @include border-radius(8px);
     }
 }
-
-// .about-hero__track{
-//     margin-top:rem(68);
-
-//     @include breakpoint-md{
-//         margin-top:rem(84);
-//     }
-//     @include breakpoint-lg{
-//         margin-top:rem(10);
-//     }
-//     @include breakpoint-xl{
-//         margin-top:rem(68);
-//     }
-// }
-
-// @media(max-width:23.75em){
-//     .about-hero__track{
-//         margin-top:rem(48);
-//     }
-// }
-
-// @media only screen and (max-height: 45em) and (max-width: 34.375em){
-//     .about-hero__track{
-//         margin-top:rem(120);
-//     }
-// }
-
-// @media(min-width:85em){
-//     .about-hero__track{
-//         margin-top:rem(-32);
-//     }
-// }
-
-// @media(min-width:90em){
-//     .about-hero__track{
-//         margin-top:rem(-32);
-//     }
-// }
-
-// .about-hero__track{
-//     @include breakpoint-xxl{
-//         margin-top:rem(-10);
-//     }
-// }
 
 // ========== about us ==============
 .about-us{
@@ -144,6 +95,7 @@
 .heading-opacity--30{
     color:rgba(255, 118, 87, 0.32);
 }
+
 // ================ our team starts ================
 .our-team{
     .our-team__member-footer{
@@ -154,7 +106,6 @@
         overflow:hidden;
     }
     .our-team__member{
-        // max-width:85%;
         margin:0 auto;
         @include breakpoint-md{
             max-width:100%;
@@ -182,20 +133,13 @@
     .grow-with-us__heading-text{
         color:$clr-white;
     }
-    // &__inner-content{
-    //     p{
-    //         font-size: rem(18);
-    //         line-height: 2;
-    //         @include breakpoint-sm{
-    //             font-size: rem(20);
-    //         }
-    //     }
-    // }
 }
+
 // ============== what we create ============
 .what-we-create{
     overflow-x: hidden;
 }
+
 .what-we-create__subheading{
     text-transform:uppercase;
     overflow:hidden;
@@ -215,7 +159,6 @@
 .quick-call{
     background-color:$clr-section-bg;
     .inner-section{
-        // max-width:rem(960);
         max-width:rem(800);
         margin:0 auto;
         text-align: center;
@@ -234,10 +177,6 @@
 }
 .counter-area--secondary{
     background-color:$clr-section-bg;
-    // .count-digit-wrapper{
-    //     color:$clr-primary;
-    // }
-
     .page-container .count-area-content{
         @include breakpoint-md{
             width:45%;

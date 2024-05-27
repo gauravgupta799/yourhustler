@@ -1,0 +1,405 @@
+@use '../abstract/function' as *;
+@use '../abstract/breakpoints' as *;
+@use '../abstract/mixins' as *;
+@use '../abstract/colors' as *;
+@use '../abstract/font' as *;
+ 
+
+.form-card{
+    width:100%;
+    background-color:$clr-white;
+    padding:rem(20);
+
+    @include breakpoint-md{
+        padding:rem(32);
+    }
+
+    .input-control{
+        font-family:$ff-secondary; 
+        border:none;
+        background-color:rgba(242, 245, 254, 0.55);
+        outline:1px solid #ABABAB;
+        line-height:1em; 
+        width:100%;
+        padding:rem(14) rem(18);
+        font-size:rem(16);
+
+        &:focus{
+            outline:2px solid $clr-primary;
+        }
+
+        @include breakpoint-md{
+            padding:rem(18) rem(32);
+        }
+    }
+
+    textarea.input-control{
+        height:rem(93) !important;
+        background-color:rgba(242, 245, 254, 0.55);
+        resize: vertical;
+    }
+
+    button[type="submit"]{
+        opacity:1;
+        width:100%;
+    }
+}
+
+// city page hero banner
+.hero-banner--city-page{
+    min-height:100vh;
+    height:unset;
+
+    .page-container{
+        height:100%;
+    }
+}
+
+// pop up video code 
+.video-testimonial__img-placeholder{
+    position:relative;
+
+    &:after{
+        content:"";
+        position: absolute;
+        top:0;
+        right:0;
+        left:0;
+        bottom:10px;
+        background-color:rgba($clr-black, 0.16); 
+    }
+}
+
+.video-popup-container {
+    display: none;
+    position: fixed;
+    z-index: 996;
+    width: 90%;
+    left: 50%;
+    margin-left: -46%;
+    top: 35%;
+    background-color: $clr-white;
+
+    @include breakpoint-md {
+        width: 70%;
+        left: 50%;
+        margin-left: -34%;
+        top: 20%;
+    }
+
+    @include breakpoint-lg {
+        width: 60%;
+        left: 50%;
+        margin-left: -30%;
+        top: 15%;
+    }
+}
+
+.video-popup-close {
+    cursor: pointer;
+    position: absolute;
+    right: rem(-16);
+    top: rem(-16);
+    z-index: 998;
+    width: rem(35);
+    height: rem(35);
+    border-radius: 50%;
+    text-align: center;
+    font-size: rem(16);
+    background-color: $clr-white;
+    line-height: 1em;
+    color: $clr-secondary;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.35s ease-in-out;
+
+    &:hover {
+        background-color: rgba($clr-white, 0.85);
+        backdrop-filter: blur(3px);
+    }
+}
+
+.video-popup-iframe-container {
+    position: absolute;
+    z-index: 997;
+    width: 100%;
+    padding-bottom: 56.25%;
+    border: 2px solid $clr-black;
+    border-radius: 2px;
+    background-color: $clr-black;
+}
+
+.video-popup-iframe {
+    z-index: 999;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $clr-black;
+}
+
+.video-popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 995;
+    background-color: rgba($clr-black, 0.8);
+    width: 100%;
+    height: 100%;
+}
+
+.video-popup-btn-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+
+    .btn__vpop {
+        cursor: pointer;
+        position: relative;
+        outline: none;
+        border: none;
+        width: rem(60);
+        height: rem(60);
+        border-radius: 50%;
+        font-size: rem(18);
+        background-color: $clr-secondary;
+        transition: all 0.35s ease-in-out;
+        @include flex-center;
+        color:$clr-white;
+
+        @include breakpoint-md {
+            width: rem(70);
+            height: rem(70);
+            font-size: rem(20);
+        }
+
+        @include breakpoint-lg {
+            width: rem(80);
+            height: rem(80);
+            font-size: rem(22);
+        }
+    }
+
+    .btn__vpop:hover {
+        background-color: rgba($clr-primary, 0.65);
+        color: $clr-white;
+    }
+
+    .btn__vpop::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: inherit;
+        border-radius: 50%;
+        z-index: -1;
+        animation: ripple-play-btn 1.5s ease-out infinite;
+    }
+}
+
+@keyframes ripple-play-btn {
+    from {
+        opacity: 1;
+        transform: scale(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(1.8);
+    }
+}
+
+// random fact section 
+.random-fact{
+    background-color:$clr-primary;
+    position: relative;
+
+    &:after{
+        content:"";
+        position: absolute;
+        top:0;
+        left:0;
+        width:6.5%;
+        bottom:-10%;
+        background-color:$clr-secondary;
+        z-index:2;
+        height:100%;
+    }
+}
+
+
+// ======================= what we do =============================
+// .what-we-do {
+//     background-color: $clr-section-bg;
+// }
+
+// .what-we-do__wrapper {
+//     border-bottom: 1px solid #DBDBDB;
+//     position: relative;
+
+//     &:before {
+//         content: '';
+//         position: absolute;
+//         width: 0%;
+//         top: 0px;
+//         left: 0px;
+//         bottom: 0;
+//         right: 0;
+//         display: block;
+//         transition-property: width, background-color, fill;
+//         transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+//         transition-duration: 450ms;
+//     }
+
+//     &:hover {
+//         color: $clr-white;
+//         cursor: pointer;
+
+//         &:before {
+//             width: 100%;
+//             background-color: $clr-primary;
+//         }
+//     }
+// }
+
+// .section__heading-text {
+//     color: $clr-primary;
+// }
+
+// .section-header .overflow-hidden-wrapper:first-child{
+//     max-width:rem(600);
+// }
+
+// .section-header .overflow-hidden-wrapper:last-child{
+//     max-width:rem(750);
+// }
+
+// .what-we-do__inner-content {
+//     padding-block: rem(32);
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//     position: relative;
+
+
+//     @include breakpoint-md {
+//         padding-block: rem(48);
+//     }
+
+//     @include breakpoint-md {
+//         padding-block: rem(64);
+//     }
+
+
+//     &:hover .what-we-do__paragraph {
+//         color: $clr-white;
+//     }
+
+//     &:hover svg {
+//         fill: $clr-secondary;
+//         transform: translateX(5px);
+
+//         @include breakpoint-md {
+//             transform: translateX(10px);
+//         }
+//     }
+
+//     .arrow-icon {
+//         @include flex-center-vertical;
+//     }
+
+//     .absolute-text {
+//         font-size: rem(24);
+//         line-height: rem(33);
+//         font-style: italic;
+//         font-family: $ff-secondary;
+//     }
+
+//     .what-we-do__heading-text {
+//         text-transform: capitalize;
+//     }
+
+//     .read-more-btn {
+//         display: inline-block;
+
+//         @include breakpoint-md {
+//             margin-top: none;
+//         }
+//     }
+
+//     .what-we-do__paragraph {
+//         font-size: rem(16);
+//         line-height: 2;
+//         font-family: $ff-secondary;
+//     }
+
+//     .what-we-do__body {
+//         display: flex;
+//         gap: rem(16);
+//         width: 100%;
+//     }
+
+//     .lets-work {
+//         font-family: $ff-secondary;
+//         font-size: rem(16);
+//         line-height: 2;
+//         font-weight: 600;
+//         color: $clr-secondary;
+
+//         @include breakpoint-md {
+//             font-size: rem(18);
+//         }
+//     }
+
+//     .lets-work-arrow svg {
+//         width: rem(45);
+//         height: auto;
+//         transition: 0.35s transform ease-in-out;
+
+//         @include breakpoint-md {
+//             width: rem(68);
+//         }
+//     }
+
+//     &:hover .what-we-do__heading-text {
+//         color: $clr-white;
+//     }
+// }
+
+
+
+.process-section{
+    .step-header{
+        display: flex;
+    }
+
+    .step-no h5, 
+    .step-name h5 {
+        color: $clr-white;
+    }
+
+    .step-no {
+        background-color: $clr-secondary;
+        text-align: center;
+        // width: 80px;
+        padding: rem(8) rem(24);
+        border-radius: 4px 0px 0px 4px;
+        @include flex-center;
+    }
+
+    .step-name {
+        background-color: $clr-primary;
+        padding: rem(8) rem(32);
+        text-align: center;
+        border-radius: 0px 4px 4px 0px;
+    }
+}

@@ -16,8 +16,7 @@
 
 .feature-project__container {
     width: 85%;
-    margin:0 auto rem(48) auto;
-
+    margin:0 auto rem(48);
     @include breakpoint-lg {
         width: 90%;
         margin: 0 auto rem(96) auto;
@@ -25,8 +24,8 @@
 }
 
 .feature-project__container--work-portfolio{
-    width: 85%;
-    margin: 0 auto rem(48) auto;
+    margin: 0px auto rem(80);
+    width: 100%;
 
     @include breakpoint-md{
         margin: 0 0 rem(96) 0; 

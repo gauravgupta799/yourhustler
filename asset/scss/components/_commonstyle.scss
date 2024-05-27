@@ -4,9 +4,14 @@
 @use '../abstract/mixins' as *;
 @use '../abstract/breakpoints' as *;
 
-// .main-content{
-//     overflow: hidden;
-// }
+.main-content{
+    overflow: hidden;
+}
+
+.banner-img{
+    border-radius:10px;
+}
+
 .overlay{
     position: fixed;
     inset: 0;
@@ -33,62 +38,35 @@
     list-style: none;
 }
 
-.footer-link{
-    @include flex-column;
-    row-gap: 8px;
-    margin-top: 10px;
-}
 //?--------- Custom Play Button Styles Start ---------
 .video-action-btn{
-    position: absolute;
-    padding: em(24);
-    background: $clr-white;
+    background: $clr-secondary;
     box-shadow: 0 0 20px 0 rgba(255, 119, 87, 0.25);
     @include border-radius(half);
-    bottom: rem(20);
-    right: rem(32);
     @include flex-center;
     @include animation(rippel, 1.25s, ease-in-out, infinite);
     @include transition(all, 0.25s, ease-in-out);
+    padding: em(24);
     @include breakpoint-sm{
-        bottom: rem(16);
-        right: rem(24);
+        padding:em(32);
     }
-    @include breakpoint-md{
-        padding:em(28);
-    }
-    @include breakpoint-lg{
-        padding:em(34);
-        bottom: rem(24);
-        right: rem(44);
+    @include breakpoint-xl{
+        padding:em(36);
     } 
     span{
         svg{
-            width: rem(24);
+            width: rem(20);
             height: auto;
+            @include breakpoint-sm{
+                width: rem(24);
+            }
             @include breakpoint-md{
-                width: rem(30);
-            }
-            @include breakpoint-lg{
-                width: rem(34);
+                width: rem(28);
             }
         }
-    }
-    &:hover{
-        cursor: pointer;
-        opacity: 0.8;
-        background: $clr-secondary;
-        transform:scale(1.05);
-        span{
-            svg{
-                path{
-                    fill:$clr-white;
-                }
-            }
-        }
-
     }
 }
+
 
 .play-btn{
     @include flex-center;
@@ -99,15 +77,6 @@
     0% {
         box-shadow: 0 0 0 0px rgba(255, 119, 87, 0.1);
     }
-    // 25%{
-    //     box-shadow: 0 0 0 5px rgba(255, 119, 87, 0.1);
-    // }
-    // 50% {
-    //     box-shadow: 0 0 0 10px rgba(255, 119, 87, 0.1);
-    // }
-    // 75% {
-    //      box-shadow: 0 0 0 15px rgba(255, 119, 87, 0.1);
-    // }
     100% {
         box-shadow: 0 0 0 20px rgba(255, 119, 87, 0.1);
     }
@@ -150,7 +119,9 @@
 }
 
 .arrow-up-figure{
-    transform: translateX(9%);
+    img{
+        max-width: 80px;
+    }
 }
 
 .sales__figure{
@@ -159,7 +130,7 @@
     }
 }
 
-.google-ranking {
+.google-ranking, .sepr {
     ul {
         li{
             font-weight: 900;
@@ -167,9 +138,39 @@
     }
 }
 
-// #btn-back-to-top {
-//     position: fixed;
-//     bottom: 20px;
-//     right: 20px;
-//     // display: none;
+
+
+
+
+
+
+
+// ==============
+
+// .step-wrapper{
+//     display: flex;
+//     align-items: center;
+//     background-color: $clr-primary;
+//     max-width: 220px;
+//     border-radius:4px;
+
+//     @include breakpoint-md{
+//         max-width: 280px;
+//     }
+//     @include breakpoint-lg{
+//         max-width: 360px;
+//     }
+
+//     h4{
+//         color:white;
+//     }
+//     .step-no-box{
+//         background-color:$clr-secondary;
+//         padding-inline:em(16);
+//         padding-block:em(2);
+//     }
+//     .step-name-box{
+//         padding-inline:em(16);
+//         padding-block:em(2);
+//     }
 // }

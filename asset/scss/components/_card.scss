@@ -18,19 +18,18 @@
     }
     &__hero{
         position: relative;
-        @include border-radius(12px);
-        border: solid 1px rgba(172,172,172,0.76);
+        // @include border-radius(8px);
+        // border: solid 1px rgba(172,172,172,0.76);
         background-color: $clr-white;
     }
     &__body{
         padding: em(16);
         padding-bottom: em(32);
+        padding-inline:0;
         @include breakpoint-sm{
             padding: em(32);
             padding-top: 0;
+            padding-inline:0;
         }
     }
 }
-
-// width="99.466" height="108.242" 
-// width="279.801" height="198.4"

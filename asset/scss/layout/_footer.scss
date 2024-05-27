@@ -13,14 +13,11 @@
 .footer::before{
     content:'';
     position:absolute;
-    top:-1.65%;
     width:100%;
     height:rem(48);
     background-color:$clr-secondary;
     clip-path: polygon(0 74%, 100% 45%, 100% 100%, 0% 100%);
-    @include breakpoint-sm{
-        top:-2.65%;
-    }
+    margin-top: -40px;
 }
 
 .footer-inner{
@@ -82,7 +79,10 @@
 }
 
 .footer-logo{
-    width:rem(214);
+    width:rem(200);
+    @include breakpoint-sm{
+        width:rem(214);
+    }
 }
 
 .footer-heading-text,
@@ -112,14 +112,20 @@
  }
 
  .footer-social-link__item{
-    width:rem(50);
-    height:rem(50);
+    @include dimensions(rem(44) , rem(44));
     background-color: $clr-secondary;
     @include flex-center;
     position:relative;
     overflow:hidden;
-    img{
-        position:relative;
+    border-radius:4px;
+    z-index: 1;
+    @include breakpoint-sm{
+        @include dimensions(rem(48) , rem(48));
+    }
+    svg {
+        path{
+            fill:$clr-white;
+        }
     }
 
     &:before{
@@ -131,29 +137,57 @@
         transform:scale(0);
         transform-origin:bottom left;
         background-color:$clr-text;
+        z-index: -1;
     }
 
     &:hover{
+        cursor: pointer;
         &:before{
             transform:scale(2);
+        }
+        svg {
+            path{
+                fill:$clr-white;
+            }
         }
     }
  }
 
  .copy-right-text{
-     font-size:rem(16);
+     font-size:rem(14);
      font-weight:normal;
      color:$clr-white;
-     line-height:rem(36);
+     line-height:rem(32);
      margin-top:rem(22);
      font-family:$ff-secondary;
      display:block;
+     @include breakpoint-sm{
+        font-size:rem(16);
+     }
  }
 
+ .footer-link{
+    @include flex-column;
+    margin-top: rem(6);
+    align-items: center;
+    @include breakpoint-sm{
+        align-items: start;
+    }
+    @include breakpoint-xl{
+        margin-top: rem(10);
+        row-gap: rem(8);
+    }
+}
+
 .footer-link__item{
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
     font-family:$ff-secondary;
-    font-size:rem(18);
-    line-height:rem(44);
+    font-size:rem(16);
+    font-weight: 600;
+    // line-height:rem(40);
+    line-height:rem(32);
     background-image: linear-gradient(
         to right,
         $clr-secondary, 
@@ -166,7 +200,10 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     transition:background-position 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
-    font-weight: 600;
+ 
+    @include breakpoint-sm{
+        font-size:rem(18);
+    }
     @include breakpoint-xxl{
         font-size: rem(20);
     }
@@ -178,29 +215,22 @@
             }
         }
     }
+}
 
-    //  &:hover{
-    //      color:$clr-secondary;
-    //      svg{
-    //         path{
-    //             fill: $clr-secondary;
-    //         }
-    //      }
-    //  }
-}
 .footer-link__address{
-    margin-top: rem(-38);
-    @media only screen and (min-width: 1500px) {
-       margin-top: 0px;
-    }
+    display: flex;
+    margin-top: rem(-22);
 }
+
 .footer-link--highlight{
     font-weight:900;
     transition:unset;
     font-size:rem(24);
     color:$clr-tertiary;
+    text-align: center;
     @include breakpoint-sm{
         font-size:rem(26);
+        text-align: left;
     }
     @include breakpoint-md{
         font-size:rem(28);
@@ -208,16 +238,20 @@
     @include breakpoint-lg{
         font-size:rem(32);
     }
-    // &:hover{
-    //     color:$clr-white;
-    // }
 }
 
 .footer-address{
-    a{
-        @include flex-center-vertical;
-        display: flex;
-        column-gap:rem(10);
+    address{
+        font-family: $ff-secondary;
+        font-style:normal !important;
+        max-width: 20ch;
+    }
+}
+
+.footer-logo-wrapper{
+    text-align:center;
+    @include breakpoint-sm{
+        text-align:left;
     }
 }
 

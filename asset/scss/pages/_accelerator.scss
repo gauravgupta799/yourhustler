@@ -20,7 +20,7 @@
 
 .steps{
     &__card{
-        @include border-radius(12px);
+        @include border-radius(8px);
         box-shadow: 0 3px 40px 0 rgba(0, 0, 0, 0.08);
         border: solid 1px $clr-grey-700;
         background-color: $clr-white;
@@ -32,19 +32,22 @@
                 position: absolute;
                 z-index: -1;
                 background-image: repeating-linear-gradient(180deg,transparent,transparent 6px,$clr-secondary 0,$clr-secondary 16px);
-                height: 200px;
+                height: rem(200);
                 width: 4px;
-                top: -60px;
+                top: -70px;
                 left: 50%;
                 transform: translate(-50%,-50%);
                 opacity: 0.75;
+                @include breakpoint-sm{
+                    top: -60px; 
+                }
             }
         }
     }
     &__header{
         padding: em(16) em(32);
         background-color: $clr-primary;
-        @include border-radius(12px);
+        @include border-radius(8px);
         @include breakpoint-sm{
             padding: em(32) em(60);
         }
@@ -65,6 +68,11 @@
             }
         }
     }
+    
+    .steps-initial-setup{
+        position: relative;
+        z-index: 2;
+    }
 }
 
 .steps-list{
@@ -73,35 +81,32 @@
     border-radius:0px 0px 12px 12px;
     padding-bottom: 2em;
     &__item{
-        font-size: rem(20);
+        font-size: rem(18);
         font-weight: 500;
-        line-height: 2.33;
         text-align: left;
         color: $clr-black-100;
         position: relative;
-        @include breakpoint-sm{
-            font-size: rem(22);
-        }
-        @include breakpoint-md{
-            font-size: rem(24);
-        }
         @include flex-center-vertical;
-        padding: 0.15em 1em;
+        padding: 0.5em 1em;
         gap:rem(16);
+        border-bottom: 1px solid #cfcfcf;
+        &:last-child{
+            border-bottom: none;
+        }
 
         @include breakpoint-sm{
-            padding: 0.25em 1.5em;
+            font-size: rem(20);
+            // padding: 0.25em 1.5em;
             gap: rem(20);
+            line-height: 2.33;
         }
-        @include breakpoint-md{
+        @include breakpoint-lg{
+            font-size: rem(22);
             padding: 0.35em 3em;
+            line-height: 2.33;
             gap: rem(26);
         }
-
-        border-bottom: 1px solid #cfcfcf;
-            &:last-child{
-                border-bottom: none;
-        }
+  
     }
 }
 
@@ -110,7 +115,7 @@
     background-color: $clr-grey-800;
     &__card{
         margin-top: rem(64);
-        @include border-radius(12px);
+        @include border-radius(8px);
         box-shadow: 0 3px 40px 0 rgba(0, 0, 0, 0.08);
         border: solid 1px $clr-grey-500;
         background-color: $clr-white;
@@ -122,24 +127,28 @@
     }
     &__list{
         font-size: rem(20);
-        line-height: 2;
+        line-height: 1.5;
         color: $clr-black-100;
-        padding: 0 em(32) em(64) em(64);
+        padding: 0 em(16) em(32) em(54);
         list-style: none;
         display: flex;
         flex-direction: column;
         row-gap: rem(16);
         @include breakpoint-sm{
             font-size: rem(22);
+            padding: 0 em(32) em(64) em(64);
+            line-height: 2;
         }
     }
 }
+
 .card--header{
     margin-top: rem(80);
     @include breakpoint-md{
         margin-top: rem(96);
     }
 }
+
 .thumb-wrapper{
     @include dimensions(rem(100), rem(100));
     @include border-radius(half);
@@ -159,6 +168,7 @@
         transform: scaleX(-1) rotate(-180deg);
     }
 }
+
 .thumb-down{
     background: $clr-orange;
 }
@@ -173,6 +183,7 @@
         }
     }
 }
+
 #business-review-down{
     .business-review__item{
         position: relative;

@@ -11,9 +11,13 @@
     border: none;
     outline: none;
     text-align: left;
-    padding-block: em(12);
+    padding-block: em(14);
     cursor: pointer;
     transition: background-color, color 0.2s linear;
+
+    @include breakpoint-lg{
+        padding-block: em(12);
+    }
 }
 
 .accordion--primary {

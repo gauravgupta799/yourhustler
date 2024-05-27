@@ -64,13 +64,24 @@
         visibility: hidden;
     }
 
-    .navbar-toggle-bar{
-        background-color:$clr-black;
+    // .navbar-toggle-bar{
+    //     background-color:$clr-black;
+    // }
+    .navbar-toggle{
+        &--home{
+            .navbar-toggle-bar{
+                background-color:$clr-primary;
+            }
+            .navbar-right-text{
+                color:$clr-primary;
+            }
+        }
     }
 
-    .navbar-right-text{
-        color:$clr-black;
-    }
+    // .navbar-right-text{
+    //     color:$clr-black;
+    //     color:$clr-black;
+    // }
 
     .navbar-right{
         visibility:visible;

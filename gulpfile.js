@@ -10,10 +10,11 @@ const browsersync = require('browser-sync').create();
 
 
 const cssFiles = [
-    'asset/scss/style.scss',
-    'asset/vendors/locomotive/locomotive-scroll.css',
+    "asset/vendors/lenis/lenis.css",
+    // 'asset/vendors/locomotive/locomotive-scroll.css',
     'asset/vendors/swiper.js_5.3.7/swiper-bundle.css',
     'asset/vendors/fontawesome-free-6.2.0-web/css/all.css',
+    'asset/scss/style.scss',
     ];
     
     //sass task for style css
@@ -41,7 +42,8 @@ const cssFiles = [
         'asset/vendors/gsap/gsap.min.js',
         'asset/vendors/gsap/scrollTrigger.min.js',
         'asset/js/percent-preloader.js', 
-        'asset/vendors/locomotive/locomotive-scroll.min.js',
+        'asset/vendors/lenis/lenis.min.js',
+        // 'asset/vendors/locomotive/locomotive-scroll.min.js',
         'asset/js/main.js'
     ]
 

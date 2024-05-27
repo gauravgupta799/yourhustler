@@ -6,46 +6,64 @@ $(window).on("load", function () {
   $(".loader").addClass("end");
 });
 
+const html = document.querySelector("html");
+const body = document.querySelector(".yh-body");
+
 //====== Registerd ScrollTrigger Plugin ==========
 gsap.registerPlugin(ScrollTrigger);
 
+//========= Lenis Start =========
+const lenis = new Lenis({
+  duration: 1.2,
+  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+  infinite: false,
+  syncTouch:false, // mimic touch device scroll while allowing scroll sync (can be unstable on iOS<16)
+  smooth: true,
+  smoothTouch: false,
+});
+
+function raf(time){
+  lenis.raf(time);
+  ScrollTrigger.update();
+  requestAnimationFrame(raf);
+}
+
+requestAnimationFrame(raf);
+//========= Lenis End =========
 
 //====== Locomotive  Scroll ======
-const scroller = new LocomotiveScroll({
-  el:document.querySelector(".main"),
-  smooth:true,
-});
+// const scroller = new LocomotiveScroll({
+//   el:document.querySelector(".main"),
+//   smooth:true,
+// });
+
+
+// scroller.on('scroll', handleHeaderScroll);
+// scroller.on('scroll', ScrollTrigger.update);
+
+// ScrollTrigger.scrollerProxy('.main', {
+//   scrollTop(value){
+//     return arguments.length ? scroller.scrollTo(value, 0, 0) :
+//     scroller.scroll.instance.scroll.y
+//   },
+//   getBoundingClientRect(){
+//     return {
+//       left:0, top:0,
+//       width:window.innerWidth, height:window.innerHeight
+//     }
+//   },
+//   pinType:document.querySelector('.main').style.transform ? "transform" : "fixed"
+// });
+
 
 
 //====== Sticky Header start ==========
 const headerNew = document.querySelector('.header');
-
 function handleHeaderScroll(){
-  const scrollY = scroller.scroll.instance.scroll.y;
-  if(scrollY > 50) {
-    headerNew.classList.add('sticky');
-  }else{
-    headerNew.classList.remove('sticky');
-  }
+  const scrollY  = window.scrollY;
+  scrollY > 50 ? headerNew.classList.add('sticky') : headerNew.classList.remove('sticky');
 }
 //======= Sticky Header End ===========
-
-scroller.on('scroll', handleHeaderScroll);
-scroller.on('scroll', ScrollTrigger.update);
-
-ScrollTrigger.scrollerProxy('.main', {
-  scrollTop(value){
-    return arguments.length ? scroller.scrollTo(value, 0, 0) :
-    scroller.scroll.instance.scroll.y
-  },
-  getBoundingClientRect(){
-    return {
-      left:0, top:0,
-      width:window.innerWidth, height:window.innerHeight
-    }
-  },
-  pinType:document.querySelector('.main').style.transform ? "transform" : "fixed"
-});
 
 
 //====== Active Page Link start ======
@@ -59,25 +77,43 @@ navLinks.forEach(link =>{
 });
 //====== Active Page Link end ======
 
+// const subMenuWrapper = document.querySelector(".services-submenu-wrapper");
+// const subMenu =  document.querySelector(".services-submenu")
+
+// subMenuWrapper.addEventListener("mouseenter", ()=>{
+//   subMenu.style.display = "block";
+//   gsap.from(".subMenu", 1, {
+//     opacity:0,
+//     y:50,
+//     ease:Power4.easeOut
+//   })
+// })
+
+// subMenuWrapper.addEventListener("mouseleave", ()=>{
+//   subMenu.style.display = "none";
+// })
+
+let isOpened = false;
+function stopLenisScroll(){
+  isOpened = !isOpened;
+  isOpened ?  lenis.stop() : lenis.start() 
+}
+
 
 //========== sidebar navigation toggle Start  =========
-var closeMenuBtn = document.getElementById("close-menu-btn");
-var mobileMenu = document.getElementById("mobile-menu");
-var navbarToggle = document.getElementById("navbar-toggle");
-var mobileMenuOverlay = document.getElementById("mobile-menu-overlay");
-var body = document.querySelector(".yh-body");
+function toggleMobileMenu(){
+  const mobileMenu = document.getElementById("mobile-menu");
+  mobileMenu.classList.toggle("is-active");
+  body.classList.toggle("disable-scroll");
+  stopLenisScroll();
+}
 
-navbarToggle.onclick = function () {
-  mobileMenu.classList.add("is-active");
-  mobileMenuOverlay.classList.add("is-active");
-  body.classList.add("disable-scroll");
-};
-
-closeMenuBtn.onclick = function () {
-  mobileMenu.classList.remove("is-active");
-  mobileMenuOverlay.classList.remove("is-active");
-  body.classList.remove("disable-scroll");
-};
+const navbarToggle = document.getElementById("navbar-toggle");
+if(navbarToggle){
+  navbarToggle.onclick = toggleMobileMenu;
+  const closeMenuBtn = document.getElementById("close-menu-btn");
+  closeMenuBtn.onclick = toggleMobileMenu;
+}
 //========== sidebar navigation toggle End  =========
 
 
@@ -85,31 +121,31 @@ closeMenuBtn.onclick = function () {
 const playBtns = document.querySelectorAll(".video-action-btn");
 if(playBtns) {
   const videoContainer = document.querySelector(".video__popup-container");
-  const videoOverlay = document.querySelector(".video__popup-overlay");
-  const html = document.querySelector("html");
   const closeBtn = document.querySelector(".video__popup-close");
   let iframe = document.querySelector(".video__popup-iframe-container > iframe");
+
+  function togglePopup() {
+    videoContainer.classList.toggle("show");
+    body.classList.toggle("disable-scroll");
+    gsap.fromTo(".video__popup-wrapper", 0.5,
+      { opacity:0, y:50},
+      { opacity:1, y:0, ease:Power4.easeOut }
+    );
+    stopLenisScroll();
+  }
 
   playBtns.forEach((playBtn, index) => {
     playBtn.addEventListener("click",() => {
       const videoId = playBtn.dataset.id;
       iframe.src = `https://www.youtube.com/embed/${videoId}`;
-      videoContainer.classList.add("show");
-      videoOverlay.classList.add("overlay-show");
-      html.classList.add("overflow-hidden");
+      togglePopup();
     })
   });
 
-  function hideVideo(){
-    iframe.src ="";
-    videoContainer.classList.remove("show");
-    videoOverlay.classList.remove("overlay-show");
-    html.classList.remove("overflow-hidden");
-  }
-  if(closeBtn){
-    closeBtn.addEventListener("click", hideVideo);
-    videoOverlay.addEventListener("click", hideVideo);
-  }
+  closeBtn && closeBtn.addEventListener("click", ()=>{
+    iframe.src = "";
+    togglePopup();
+  });
 }
 //========== Video Play /Pause Button End ============
 
@@ -169,7 +205,6 @@ if(cursorBee && cursorEye){
 
 //========= faq (accordion) section Start ==========
 const accordionBtns = document.querySelectorAll(".accordion");
-
 accordionBtns.forEach((accordion) => {
   accordion.onclick = function (){
     this.classList.toggle("is-open");
@@ -189,7 +224,7 @@ accordionBtns.forEach((accordion) => {
 const tl = gsap.timeline();
 
 //========== text and hero animation =========
-window.addEventListener("load", () => {
+function bannerContentsAnimation(){
   // hero area
   tl.from([".header__logo", ".navbar-toggle"], 1, {
     opacity: 0,
@@ -207,30 +242,29 @@ window.addEventListener("load", () => {
     stagger:0.2,
     ease: Power3.easeInOut,
   });
-
-  tl.from(".socials-link--hero", {
+  const socialLinks = document.querySelectorAll(".socials-link--hero")
+  socialLinks.length > 0 && tl.from(socialLinks, {
     opacity: 0,
     x: -20,
     duration:0.4,
     stagger: 0.1,
-    // delay: -0.85,
     delay: -1.1,
     ease: Power3.easeInOut,
   });
 
-  tl.from(".marque-container--hero", 1, {
+  const marqueContainer = document.querySelector(".marque-container--hero");
+  marqueContainer && tl.from(marqueContainer, 1, {
     opacity: 0,
     y: 20,
-    // delay: -0.05,
     delay: -0.99,
     ease: Power3.easeInOut,
   });
 
-  tl.from(".animate-hero-image", 1, {
+  const bannerImage = document.querySelector(".animate-hero-image");
+  bannerImage && tl.from(bannerImage, 1, {
     opacity: 0,
     y: 30,
     duration: 1,
-    // delay: -2.3,
     delay: -0.98,
     ease: Power3.easeInOut,
   });
@@ -244,7 +278,8 @@ window.addEventListener("load", () => {
     ease: Power3.easeInOut,
   });
 
-  tl.from(".animate--branding-hero-image", 1, {
+  const heroBrandingImage = document.querySelector(".animate--branding-hero-image")
+  heroBrandingImage && tl.from(heroBrandingImage  , 1, {
     opacity: 0,
     duration: 2,
     y: 30,
@@ -253,7 +288,8 @@ window.addEventListener("load", () => {
     ease: Power3.easeInOut,
   });
 
-  tl.from(".filter__list-item > a", 1,{
+  const filterListItem =  document.querySelectorAll(".filter__list-item");
+  filterListItem.length > 0 && tl.from(filterListItem, 1,{
     opacity: 0,
     x:-50,
     duration:1,
@@ -261,8 +297,8 @@ window.addEventListener("load", () => {
     stagger:0.1,
     ease:Power3.easeOut,
   })
-
-  tl.from(".filter-spacer ",{
+  const filterSpacer  =  document.querySelector(".filter-spacer");
+  filterSpacer && tl.from(filterSpacer ,{
     scale:0,
     transformOrgin:"right",
     duration:1,
@@ -278,7 +314,7 @@ window.addEventListener("load", () => {
     stagger:0.1,
     ease:Power4.easeOut,
   });
-});
+}
 
 // animation on text container
 const textContainers = gsap.utils.toArray(".animate-fade-in-up");
@@ -293,7 +329,7 @@ textContainers.forEach((textContainer, i) => {
     animation: anim,
     toggleActions: "play",
     once: true,
-    scroller:".main",
+    // scroller:".main",
     duration: 1,
     stagger:0.2,
     ease: Power4.easeOut,
@@ -313,7 +349,7 @@ fadeIn.forEach((mainContent, i) => {
     animation: anim,
     toggleActions: "play",
     once: true,
-    scroller:".main",
+    // scroller:".main",
     duration: 1,
     ease: Power4.easeOut,
   });
@@ -332,7 +368,7 @@ imagesScale.forEach((imgContainer, i) => {
     animation: anim,
     toggleActions: "play",
     once: true,
-    scroller:".main",
+    // scroller:".main",
     duration: 1,
     stagger:0.1,
     ease: Power4.easeOut,
@@ -393,12 +429,17 @@ function updateCounter(){
   }
 }
 
-scroller.on('scroll', updateCounter);
+// scroller.on('scroll', updateCounter);
+
+window.addEventListener('scroll', ()=>{
+  handleHeaderScroll();
+  updateCounter();
+})
 //========= javascript counter End ===========
 
 
-ScrollTrigger.addEventListener("refresh", () => scroller.update());
-ScrollTrigger.refresh();
+// ScrollTrigger.addEventListener("refresh", () => scroller.update());
+// ScrollTrigger.refresh();
 
 //========= checkbox is checked Start =========
 $("#agree-concent").click(function () {
@@ -518,16 +559,14 @@ closeMenuBtnItem.addEventListener("click", () => {
 
 //========= Filter Portfolio Start ============
 const filterButtons = document.querySelectorAll(".filter__list-item");
-// Update Button States
-function updateButtonState(category){
-  filterButtons.forEach((button) => {
-    button.classList.remove('active');
+if(filterButtons.length > 0){
+  filterButtons.forEach((filterBtn) => {
+    filterBtn.addEventListener("click", (e)=>{
+      const filterValue = e.currentTarget.getAttribute("value");
+      // const filterValue = filterBtn.children[0].getAttribute("value");
+      filterCards(filterValue);
+    });
   });
-
-  let activeButton = document.querySelector(`.filter-btn[value="${category}"]`).parentNode;
-  if(activeButton){
-    activeButton.classList.add('active');
-  }
 }
 
 // Filter cards based on category
@@ -559,25 +598,31 @@ function filterCards(category){
   updateButtonState(category);
 }
 
-if(filterButtons){
-  filterButtons.forEach((filterBtn) => {
-    filterBtn.addEventListener("click", ()=>{
-      const filterValue = filterBtn.children[0].getAttribute("value");
-      filterCards(filterValue);
-    });
+// Update Button States
+function updateButtonState(category){
+  filterButtons.forEach((tabBtn) => {
+    tabBtn.classList.remove('active');
+    if(tabBtn.getAttribute("value") == category){
+      tabBtn.classList.add('active');
+    }
   });
-}
 
-// Show all cards when page load
-window.onload = function(){
-  if(filterButtons){
-    filterCards('all');
-  }
-};
+  // let activeButton = document.querySelector(`.filter-btn[value="${category}"]`).parentNode;
+  // activeButton && activeButton.classList.add('active');
+}
 //=========== Filter Portfolio End =============
 
-// // Each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll.
-// ScrollTrigger.addEventListener("refresh", () => scroller.update());
 
-// // After everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
-// ScrollTrigger.refresh();
+window.addEventListener("load", () => {
+  bannerContentsAnimation();
+  // Show all cards when page load
+  filterButtons && filterCards('all');
+});
+
+
+// Update ScrollTrigger when Lenis scroll event occurs
+lenis.on('scroll', (e) => {
+  ScrollTrigger.update();
+});
+
+gsap.ticker.lagSmoothing(0);

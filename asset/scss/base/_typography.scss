@@ -24,58 +24,58 @@ $p-font-sizes: (
 );
 
 $h1-font-sizes: (
-  null: (rem(44), rem(56)),   
-  sm : (rem(48), rem(60)),
+  null: (rem(40), rem(48)),   
+  sm : (rem(48), rem(58)),
   md : (rem(56), rem(68)),
   lg: (rem(60), rem(72)),
   xl: (rem(60), rem(72)),
-  xxl: (rem(72), rem(84)),
+  xxl: (rem(72), rem(86)),
 );
 
 $h2-font-sizes: (
-  null:(rem(40), rem(52)) , 
-  sm :(rem(44), rem(56)),
-  md :(rem(48), rem(60)),
-  lg: (rem(52), rem(68)),
-  xl: (rem(52), rem(68)),
+  null:(rem(36), rem(43)) , 
+  sm :(rem(44), rem(52)),
+  md :(rem(48), rem(58)),
+  lg: (rem(52), rem(62)),
+  xl: (rem(52), rem(62)),
   xxl: (rem(64), rem(76))
 );
 
 $h3-font-sizes: (
-  null:(rem(36), rem(48)), 
-  sm :(rem(40), rem(52)),
-  md :(rem(44), rem(56)),
-  lg:(rem(48), rem(60)),
-  xl: (rem(48), rem(60)),
+  null:(rem(32), rem(38)), 
+  sm :(rem(40), rem(48)),
+  md :(rem(44), rem(52)),
+  lg:(rem(48), rem(58)),
+  xl: (rem(48), rem(58)),
   xxl:(rem(60), rem(72))
 );
 
 $h4-font-sizes: (
-  null:(rem(28), rem(38)), 
-  sm :(rem(32), rem(44)),
-  md :(rem(36), rem(48)),
-  lg:(rem(44), rem(56)),
-  xl: (rem(44), rem(56)),
+  null:(rem(28), rem(34)), 
+  sm :(rem(32), rem(38)),
+  md :(rem(36), rem(42)),
+  lg:(rem(44), rem(52)),
+  xl: (rem(44), rem(52)),
   xxl: (rem(56), rem(68))
 );
 
 $h5-font-sizes: (
-  null: (rem(24), rem(36)),
-  sm : (rem(26), rem(38)),
-  md : (rem(28), rem(40)),
-  lg:(rem(32), rem(44)),
-  xl:(rem(32), rem(44)),
-  xxl:(rem(44), rem(56))
+  null: (rem(24), rem(29)),
+  sm : (rem(24), rem(29)),
+  md : (rem(28), rem(34)),
+  lg:(rem(32), rem(38)),
+  xl:(rem(32), rem(38)),
+  xxl:(rem(44), rem(52))
 );
 
 
 $h6-font-sizes: (
-  null: (rem(22), rem(34)),
-  sm : (rem(22), rem(34)),
-  md : (rem(24), rem(36)),
-  lg:(rem(24), rem(36)),
-  xl:(rem(24), rem(36)),
-  xxl:(rem(32), rem(42))
+  null:(rem(22), rem(26)),
+  sm :(rem(22), rem(26)),
+  md :(rem(24), rem(29)),
+  lg:(rem(24), rem(29)),
+  xl:(rem(24), rem(29)),
+  xxl:(rem(32), rem(38))
 );
 
 @mixin font-size($fs-map, $fs-breakpoints: $breakpoints) {
@@ -114,19 +114,19 @@ $h6-font-sizes: (
 
 // ======== adding both font size and font-family mixins====
 h1{
-    @include font-size($h1-font-sizes);
+  @include font-size($h1-font-sizes);
 }
 
 h2{
-    @include font-size($h2-font-sizes);
+  @include font-size($h2-font-sizes);
 }
 
 h3{
-    @include font-size($h3-font-sizes);
+  @include font-size($h3-font-sizes);
 }
 
 h4{
-    @include font-size($h4-font-sizes);
+  @include font-size($h4-font-sizes);
 }
 
 h5{
@@ -140,14 +140,6 @@ h6{
 h1, h2, h3, h4, h5,h6{
   @include font-heading;
 }
-
-
-// h6{
-//   font-family:$ff-secondary;
-//   font-weight:500;
-//   @include font-size($h6-font-sizes);
-// }
-
 
 p, ul, ol, body{
     @include font-size($p-font-sizes);
